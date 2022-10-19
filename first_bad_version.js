@@ -18,3 +18,7 @@ function isBadVersion(n, bad) {
 
     return false;
 }
+
+console.log(isBadVersion(5, 4)); // true
+console.log(isBadVersion(4, 4)); // true
+console.log(isBadVersion(3, 4)); // false
