@@ -25,11 +25,6 @@ function firstBadVersion(n, bad) {
         } else {
             n = n + delta;
         }
-        
-        console.log('badVersion: ', badVersion);
-        console.log('n: ', n);
-        console.log('post-delta: ', delta);
-        console.log('------------');
     }
 
     return badVersion;
