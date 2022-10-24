@@ -9,6 +9,30 @@ function firstBadVersion(n, bad) {
     // if not bad, divide by 2 and then check again
     // if is bad, multiply by 1.5 and then check again
     // repeat until difference between n's is 1
+
+    if (n === 1) {
+        return n;
+    }
+    
+    let badVersion = n;
+    let delta = n - 1;
+    n = n - delta;
+    while (delta > 0) {
+        if (isBadVersion(n, bad)) {
+            badVersion = n;
+            n = n - delta;
+            delta = Math.floor(delta / 2);
+        } else {
+            n = n + delta;
+        }
+        
+        console.log('badVersion: ', badVersion);
+        console.log('n: ', n);
+        console.log('post-delta: ', delta);
+        console.log('------------');
+    }
+
+    return badVersion;
 }
 
 function isBadVersion(n, bad) {
@@ -19,6 +43,14 @@ function isBadVersion(n, bad) {
     return false;
 }
 
-console.log(isBadVersion(5, 4)); // true
-console.log(isBadVersion(4, 4)); // true
-console.log(isBadVersion(3, 4)); // false
+// console.log(isBadVersion(5, 4)); // true
+// console.log(isBadVersion(4, 4)); // true
+// console.log(isBadVersion(3, 4)); // false
+
+// console.log(firstBadVersion(5, 4)); // 4
+// console.log(firstBadVersion(1, 1)); // 1
+// console.log(firstBadVersion(10, 4)); // 4
+// console.log(firstBadVersion(5, 1)); // 1
+// console.log(firstBadVersion(5, 2)); // 2
+// console.log(firstBadVersion(86, 55)); // 55
+console.log(firstBadVersion(2, 1)); // 1
