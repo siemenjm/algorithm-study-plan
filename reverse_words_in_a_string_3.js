@@ -19,7 +19,21 @@
 // All the words in s are separated by a single space.
 
 function reverseWords(s) {
+    let arr = s.split(' ');
+    for (let i = 0; i < arr.length; i++) {
+        let wordArr = arr[i].split('');
+        for (let j = 0, k = wordArr.length - 1; j < k;) {
+            [wordArr[j], wordArr[k]] = [wordArr[k], wordArr[j]];
 
+            j++;
+            k--;
+        }
+
+        const joined = wordArr.join('');
+        arr[i] = joined;
+    }
+    
+    return arr.join(' ');
 }
 
 console.log(reverseWords("Let's take LeetCode contest")); // "s'teL ekat edoCteeL tsetnoc"
