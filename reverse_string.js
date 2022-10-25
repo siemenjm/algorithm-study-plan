@@ -18,7 +18,9 @@
 // s[i] is a printable ascii character.
 
 function reverseString(s) {
+    s.reverse();
 
+    return s;
 }
 
 console.log(reverseString(["h","e","l","l","o"])); // ["o","l","l","e","h"]
