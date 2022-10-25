@@ -1,7 +1,11 @@
 // Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
 
-function sortedSquares() {
+function sortedSquares(nums) {
+    for (let i = 0; i < nums.length; i++) {
+        nums[i] = nums[i] ** 2;
+    }
 
+    return mergeSort(nums);
 }
 
 function mergeSort(unsortedArray) {
