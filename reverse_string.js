@@ -18,7 +18,12 @@
 // s[i] is a printable ascii character.
 
 function reverseString(s) {
-    s.reverse();
+    for (let i = 0, j = s.length - 1; i < j;) {
+        [s[i], s[j]] = [s[j], s[i]];
+
+        i++;
+        j--;
+    }
 
     return s;
 }
