@@ -7,10 +7,21 @@ function rotate(nums, k) {
 
     // return nums;
 
-    const first = nums.slice(-k);
-    const resultArray = first.concat(nums.slice(0, -k));
+    // const first = nums.slice(-k);
+    // const resultArray = first.concat(nums.slice(0, -k));
 
-    return resultArray;
+    // return resultArray;
+    
+    let resultArray = [];
+    for (let i = 0; i < nums.length; i++) {
+        resultArray[(i + k) % nums.length] = nums[i];
+    }
+
+    for (let i = 0; i < resultArray.length; i++) {
+        nums[i] = resultArray[i];
+    }
+
+    return nums;
 }
 
 console.log(rotate([1,2,3,4,5,6,7], 3)); // [5,6,7,1,2,3,4]
