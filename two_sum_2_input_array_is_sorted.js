@@ -35,6 +35,8 @@ function twoSum(numbers, target) {
         for (let j = i + 1; j < numbers.length; j++) {
             if (numbers[i] + numbers[j] === target) {
                 return [i + 1, j + 1];
+            } else if (numbers[i] + numbers[j] > target) {
+                break;
             }
         }
     }
