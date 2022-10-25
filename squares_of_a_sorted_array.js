@@ -16,5 +16,23 @@ function mergeSort(unsortedArray) {
     return merge(mergeSort(left), mergeSort(right));
 }
 
+function merge(left, right) {
+    let resultArray = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
+
+    while (leftIndex < left.length && rightIndex < right.length) {
+        if (left[leftIndex] < right[rightIndex]) {
+            resultArray.push(left[leftIndex]);
+            leftIndex++;
+        } else {
+            resultArray.push(right[rightIndex]);
+            rightIndex++;
+        }
+    }
+
+    return resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+}
+
 console.log(sortedSquares([-4,-1,0,3,10])); // [0,1,9,16,100]
 console.log(sortedSquares([-7,-3,2,3,11])); // [4,9,9,49,121]
