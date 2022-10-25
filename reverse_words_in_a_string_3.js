@@ -18,3 +18,9 @@
 // There is at least one word in s.
 // All the words in s are separated by a single space.
 
+function reverseWords(s) {
+
+}
+
+console.log(reverseWords("Let's take LeetCode contest")); // "s'teL ekat edoCteeL tsetnoc"
+console.log(reverseWords("God Ding")); // "doG gniD"
