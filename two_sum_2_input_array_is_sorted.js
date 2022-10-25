@@ -31,15 +31,24 @@
 // The tests are generated such that there is exactly one solution.
 
 function twoSum(numbers, target) {
-    for (let i = 0; i < numbers.length - 1; i++) {
+    // for (let i = 0; i < numbers.length - 1; i++) {
+    //     for (let j = i + 1; j < numbers.length; j++) {
+    //         if (numbers[i] + numbers[j] === target) {
+    //             return [i + 1, j + 1];
+    //         } else if (numbers[i] + numbers[j] > target) {
+    //             break;
+    //         }
+    //     }
+    // }
+
+    for (let i = 0; i < numbers.length; i++) {
         for (let j = i + 1; j < numbers.length; j++) {
-            if (numbers[i] + numbers[j] === target) {
+            if (numbers[j] === target - numbers[i]) {
                 return [i + 1, j + 1];
-            } else if (numbers[i] + numbers[j] > target) {
-                break;
             }
         }
     }
+
 }
 
 console.log(twoSum([2,7,11,15], 9)); // [1,2]
