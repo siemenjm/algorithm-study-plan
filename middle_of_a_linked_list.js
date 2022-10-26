@@ -19,7 +19,7 @@
 // 1 <= Node.val <= 100
 
 class ListNode {
-    constructor(data) {
+    constructor(data = 0) {
         this.data = data,
         this.next = null
     }
@@ -30,3 +30,19 @@ class LinkedList {
         this.head = head
     }
 }
+
+function createLinkedList(nodes) {
+    let nodeArray = [];
+    for (let i = 1; i <= nodes; i++) {
+        nodeArray.push(new ListNode(i));
+    }
+
+    nodeArray.forEach((node) => {
+        if (node.data !== nodes) {
+            node.next = node.data + 1;
+        }
+    });
+
+    return new LinkedList(nodeArray[0]);
+}
+
