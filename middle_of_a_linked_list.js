@@ -18,35 +18,15 @@
 // The number of nodes in the list is in the range [1, 100].
 // 1 <= Node.val <= 100
 
-function ListNode(val, next) {
-    this.val = (val === undefined ? 0 : val);
-    this.next = (next === undefined ? null : next);
-}
-
-function middleNode(head) {
-    let middle = Math.floor(head.length / 2);
-
-    return head.slice(middle);
-}
-
-let head = [];
-let length = 5;
-for (let i = 1; i <= length; i++) {
-    if (i === length) {
-        head.push(new ListNode(i));
-    } else {
-        head.push(new ListNode(i, i+1));
+class ListNode {
+    constructor(data) {
+        this.data = data,
+        this.next = null
     }
 }
-console.log(middleNode(head)); // [3,4,5]
 
-head = [];
-length = 6;
-for (let i = 1; i <= length; i++) {
-    if (i === length) {
-        head.push(new ListNode(i));
-    } else {
-        head.push(new ListNode(i, i+1));
+class LinkedList {
+    constructor(head = null) {
+        this.head = head
     }
 }
-console.log(middleNode(head)); // [4,5,6]
