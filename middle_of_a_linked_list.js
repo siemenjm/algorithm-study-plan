@@ -22,3 +22,10 @@ function ListNode(val, next) {
     this.val = (val === undefined ? 0 : val);
     this.next = (next === undefined ? null : next);
 }
+
+function middleNode(head) {
+    
+}
+
+console.log(middleNode([1,2,3,4,5])); // [3,4,5]
+console.log(middleNode([1,2,3,4,5,6])); // [4,5,6]
