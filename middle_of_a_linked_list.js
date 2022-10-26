@@ -24,8 +24,29 @@ function ListNode(val, next) {
 }
 
 function middleNode(head) {
-    
+    let middle = Math.floor(head.length / 2);
+
+    return head.slice(middle);
 }
 
-console.log(middleNode([1,2,3,4,5])); // [3,4,5]
-console.log(middleNode([1,2,3,4,5,6])); // [4,5,6]
+let head = [];
+let length = 5;
+for (let i = 1; i <= length; i++) {
+    if (i === length) {
+        head.push(new ListNode(i));
+    } else {
+        head.push(new ListNode(i, i+1));
+    }
+}
+console.log(middleNode(head)); // [3,4,5]
+
+head = [];
+length = 6;
+for (let i = 1; i <= length; i++) {
+    if (i === length) {
+        head.push(new ListNode(i));
+    } else {
+        head.push(new ListNode(i, i+1));
+    }
+}
+console.log(middleNode(head)); // [4,5,6]
