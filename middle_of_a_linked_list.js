@@ -37,12 +37,27 @@ function createLinkedList(nodes) {
         nodeArray.push(new ListNode(i));
     }
 
-    nodeArray.forEach((node) => {
+    nodeArray.forEach((node, index) => {
         if (node.data !== nodes) {
-            node.next = node.data + 1;
+            node.next = nodeArray[index + 1];
         }
     });
 
     return new LinkedList(nodeArray[0]);
 }
 
+console.log(createLinkedList(5));
+
+// function middleNode(head) {
+//     let fast = head;
+//     let slow = head;
+
+//     while (fast && fast.next) {
+//         fast = fast.next.next;
+//         slow = slow.next;
+//     }
+
+//     return slow;
+// }
+
+// console.log(middleNode(createLinkedList(5)));
