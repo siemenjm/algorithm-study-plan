@@ -64,20 +64,25 @@ function removeNthFromEnd(head, n) {
     console.log('totalNodes: ', totalNodes);
 
     // use totalNodes to find nth-from-end node
-    let nthFromEndNodePointer = totalNodes - n - 1;
-    console.log('nthFromEndNodePointer: ', nthFromEndNodePointer)
+    let nthFromEndNodePrevPointer = totalNodes - n;
+    console.log('nthFromEndNodePrevPointer: ', nthFromEndNodePrevPointer)
 
-    let nthFromEndNode = head;
-    while (nthFromEndNodePointer >= 0) {
-        nthFromEndNode = nthFromEndNode.next;
-        nthFromEndNodePointer--;
+    let nthFromEndPrevNode = head;
+    nthFromEndNodePrevPointer--;
+    while (nthFromEndNodePrevPointer > 0) {
+        nthFromEndPrevNode = nthFromEndPrevNode.next;
+        nthFromEndNodePrevPointer--;
     }
-    console.log('nthFromEndNode: ', nthFromEndNode);
+    console.log('nthFromEndPrevNode: ', nthFromEndPrevNode);
+
 
     // remove node
-    
+    nthFromEndPrevNode.next = nthFromEndPrevNode.next.next;
 
     // return head
+    return head;
 }
 
-console.log(removeNthFromEnd(createLinkedList(5).head, 2)); // [1,2,3,5]
+// console.log(removeNthFromEnd(createLinkedList(5).head, 2)); // [1,2,3,5]
+// console.log(removeNthFromEnd(createLinkedList(1).head, 1)); // []
+console.log(removeNthFromEnd(createLinkedList(2).head, 1)); // [1]
