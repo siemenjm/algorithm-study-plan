@@ -48,4 +48,36 @@ function createLinkedList(nodes) {
     return new LinkedList(nodeArray[0]);
 }
 
-console.log(createLinkedList(5));
+// console.log(createLinkedList(5));
+
+function removeNthFromEnd(head, n) {
+    // find the nth-from-end node
+    
+    // find the end node, count how many nodes there are to get there
+    let end = head;
+    let totalNodes = 1;
+    while (end.next) {
+        end = end.next;
+        totalNodes++;
+    }
+    console.log('end: ', end);
+    console.log('totalNodes: ', totalNodes);
+
+    // use totalNodes to find nth-from-end node
+    let nthFromEndNodePointer = totalNodes - n - 1;
+    console.log('nthFromEndNodePointer: ', nthFromEndNodePointer)
+
+    let nthFromEndNode = head;
+    while (nthFromEndNodePointer >= 0) {
+        nthFromEndNode = nthFromEndNode.next;
+        nthFromEndNodePointer--;
+    }
+    console.log('nthFromEndNode: ', nthFromEndNode);
+
+    // remove node
+    
+
+    // return head
+}
+
+console.log(removeNthFromEnd(createLinkedList(5).head, 2)); // [1,2,3,5]
