@@ -21,8 +21,8 @@
 // 1 <= n <= sz
 
 class ListNode {
-    constructor(data = 0) {
-        this.data = data,
+    constructor(val = 0) {
+        this.val = val,
         this.next = null
     }
 }
@@ -40,7 +40,7 @@ function createLinkedList(nodes) {
     }
 
     nodeArray.forEach((node, index) => {
-        if (node.data !== nodes) {
+        if (node.val !== nodes) {
             node.next = nodeArray[index + 1];
         }
     });
@@ -51,38 +51,32 @@ function createLinkedList(nodes) {
 // console.log(createLinkedList(5));
 
 function removeNthFromEnd(head, n) {
-    // find the nth-from-end node
+    // two pointers, a fast and slow
+    // fast finds the end of the list
+    // slow waits for fast to move n times before starting
+    // when fast reaches end, stop. slow will be the nth-from-end node
+
+    let fast = head;
+    let slow = head;
     
-    // find the end node, count how many nodes there are to get there
-    let end = head;
-    let totalNodes = 1;
-    while (end.next) {
-        end = end.next;
-        totalNodes++;
+    for (let i = 0; i < n; i++) {
+        fast = fast.next;
     }
-    console.log('end: ', end);
-    console.log('totalNodes: ', totalNodes);
 
-    // use totalNodes to find nth-from-end node
-    let nthFromEndNodePrevPointer = totalNodes - n;
-    console.log('nthFromEndNodePrevPointer: ', nthFromEndNodePrevPointer)
-
-    let nthFromEndPrevNode = head;
-    nthFromEndNodePrevPointer--;
-    while (nthFromEndNodePrevPointer > 0) {
-        nthFromEndPrevNode = nthFromEndPrevNode.next;
-        nthFromEndNodePrevPointer--;
+    if (!fast) {
+        return head.next;
     }
-    console.log('nthFromEndPrevNode: ', nthFromEndPrevNode);
 
+    while (fast.next) {
+        fast = fast.next;
+        slow = slow.next;
+    }
 
-    // remove node
-    nthFromEndPrevNode.next = nthFromEndPrevNode.next.next;
+    slow.next = slow.next.next;
 
-    // return head
     return head;
 }
 
-// console.log(removeNthFromEnd(createLinkedList(5).head, 2)); // [1,2,3,5]
-// console.log(removeNthFromEnd(createLinkedList(1).head, 1)); // []
+console.log(removeNthFromEnd(createLinkedList(5).head, 2)); // [1,2,3,5]
+console.log(removeNthFromEnd(createLinkedList(1).head, 1)); // []
 console.log(removeNthFromEnd(createLinkedList(2).head, 1)); // [1]
