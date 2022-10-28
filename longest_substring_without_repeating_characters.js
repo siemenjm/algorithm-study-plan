@@ -21,7 +21,32 @@
 // s consists of English letters, digits, symbols and spaces.
 
 function lengthOfLongestSubstring(s) {
+    // find all substings
+    // ignore substrings that have repeated characters?...
+    // return remaining substring with longest length
+
+    let substringList = [];
+    for (let i = 0; i < s.length; i++) {
+        let currentSubstring = [];
+        for (let j = i; j < s.length; j++) {
+            if (!currentSubstring.includes(s[j])) {
+                currentSubstring.push(s[j]);
+                const thisSubstring = currentSubstring.join('');
+                
+                if (!substringList.includes(thisSubstring)) {
+                    substringList.push(thisSubstring);
+                }
+            } else {
+                break;
+            }
+        }
+    }
+
+    console.log(substringList); // t, tr, tre, r, re, e
 
 }
 
-console.log(lengthOfLongestSubstring('abcabcbb'));
+console.log(lengthOfLongestSubstring('tree')); // tre?...
+console.log(lengthOfLongestSubstring('abcabcbb')); // abc
+console.log(lengthOfLongestSubstring('bbbbb')); // b
+console.log(lengthOfLongestSubstring('pwwkew')); // wke
