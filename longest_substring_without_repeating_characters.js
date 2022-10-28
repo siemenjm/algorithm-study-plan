@@ -42,8 +42,18 @@ function lengthOfLongestSubstring(s) {
         }
     }
 
-    console.log(substringList); // t, tr, tre, r, re, e
+    let longestSubstring = {
+        string: '',
+        length: 0
+    };
+    for (let i = 0; i < substringList.length; i++) {
+        if (substringList[i].length > longestSubstring.length) {
+            longestSubstring.string = substringList[i];
+            longestSubstring.length = substringList[i].length;
+        }
+    }
 
+    return longestSubstring.length;
 }
 
 console.log(lengthOfLongestSubstring('tree')); // tre?...
