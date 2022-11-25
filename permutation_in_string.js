@@ -15,8 +15,27 @@
 // s1 and s2 consist of lowercase English letters.
 
 function checkInclusion(s1, s2) {
+    // search s2 for first letter of each permutation
+    // check s2 for first permutation
+    // if perm is not in s2, create next permutation
 
+    let testString = 'abc'; // abc, acb, bac, bca, cab, cba
+    for (let i = 0; i < s1.length; i++) {
+        
+    }
+
+
+
+    // this checks if perm is in s2
+    // let index = s2.indexOf(s1);
+    // if (index > -1) {
+    //     console.log('true: ', index);
+    //     return true;
+    // }
+
+    // return index;
 }
 
-console.log(checkInclusion('ab', 'eidbaooo')); // true
-console.log(checkInclusion('ab', 'eidboaoo')); // false
+console.log(checkInclusion('ba', 'eidbaooo')); // true
+// console.log(checkInclusion('ab', 'eidbaooo')); // true
+// console.log(checkInclusion('ab', 'eidboaoo')); // false
